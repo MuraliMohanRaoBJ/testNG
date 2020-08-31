@@ -57,6 +57,7 @@ public class Tshirts extends IndexPage{
 			element=driver.findElement(addToCart);
 			if(element.isDisplayed()){
 				element.click();
+				System.out.println(productName+" has been selected");
 				itemcount++;
 			}
 		}catch(Exception e){

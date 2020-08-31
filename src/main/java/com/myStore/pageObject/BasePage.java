@@ -3,6 +3,8 @@ package com.myStore.pageObject;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
@@ -23,6 +25,7 @@ public class BasePage {
 	public static WebElement element;
 	public static Actions actions ;
 	public static int itemcount=0;
+	public static String time="";
 	
 	public static final By logo=By.className("logo img-responsive");
 	
@@ -38,8 +41,13 @@ public class BasePage {
 		}
 	}
 	
+	public static String time(){
+		return time;
+	}
+	
 	public static void initialization(){
 		try{
+			time=(new SimpleDateFormat("yyyy-MM-dd hh-mm-ss-ms").format(new Date()));
     	String browserName = prop.getProperty("browser");
 		System.out.println("The selected browser is "+browserName);
 		String seleniumFolderPath =System.getProperty("user.dir")+"/src/test/resources/drivers/";
@@ -55,11 +63,12 @@ public class BasePage {
             driver=new InternetExplorerDriver();
             break;
 		}
-		wait= new WebDriverWait(driver,1000);
+		wait= new WebDriverWait(driver,5000);
 	    driver.manage().deleteAllCookies();;
 	    driver.manage().window().maximize();
 	    driver.get(prop.getProperty("url"));
-	    element=wait.until(ExpectedConditions.visibilityOfElementLocated(logo));
+//	    element=wait.until(ExpectedConditions.visibilityOfElementLocated(logo));
+	    System.out.println("The Home page has been loaded");
 	    actions= new Actions(driver);
     }catch(Exception e){
     	e.printStackTrace();
