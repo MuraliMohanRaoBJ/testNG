@@ -38,6 +38,7 @@ public class IndexPage extends BasePage{
 		try{
 			element=wait.until(ExpectedConditions.elementToBeClickable(tabTshirts));
 			driver.findElement(tabTshirts).click();
+			System.out.println("T-Shirts has been choosen!");
 		}catch(Exception e){
 			e.printStackTrace();
 		}

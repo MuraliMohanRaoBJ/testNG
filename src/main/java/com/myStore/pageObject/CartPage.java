@@ -16,6 +16,7 @@ public class CartPage extends BasePage{
 		try{
 			element=driver.findElement(viewCart);
 			element.click();
+			System.out.println("Opening Cart");
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -27,6 +28,7 @@ public class CartPage extends BasePage{
 			element=wait.until(ExpectedConditions.elementToBeClickable(iconTrash));
 			element=driver.findElement(iconTrash);
 			element.click();
+			System.out.println("Deleting items from Cart");
 		}catch(Exception e){
 			e.printStackTrace();
 		}
