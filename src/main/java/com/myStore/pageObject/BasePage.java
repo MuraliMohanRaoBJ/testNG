@@ -43,7 +43,6 @@ public class BasePage {
     	String browserName = prop.getProperty("browser");
 		System.out.println("The selected browser is "+browserName);
 		String seleniumFolderPath =System.getProperty("user.dir")+"/src/test/resources/drivers/";
-		System.out.println("Tyhe path is "+seleniumFolderPath);
         switch(browserName){
 		case "Chrome" :
 			ChromeOptions c= new ChromeOptions();
